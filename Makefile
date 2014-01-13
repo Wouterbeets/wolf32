@@ -6,12 +6,13 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/04 16:27:25 by wbeets            #+#    #+#              #
-#    Updated: 2014/01/13 17:22:40 by wbeets           ###   ########.fr        #
+#    Updated: 2014/01/13 19:40:36 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= ft_select
-FILES	= main.c
+FILES	= main.c\
+		  get_map.c
 SRC		= $(addprefix src/, $(FILES))
 OBJ		= $(SRC:src/%.c=.obj/%.o)
 FLAGS	= -Wall -Werror -Wextra

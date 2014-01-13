@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:32 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/13 19:29:13 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/13 19:51:46 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		**ft_fill_map(char *line, t_map *info)
 	int		i;
 
 	i = 0;
-	tmp = (int *)malloc((info->x + 1) *sizeof(*tmp));
-	map = (int **)malloc((info->x + 1) *sizeof(**map));
+	tmp = (int *)malloc((info->x + 1) *sizeof(int));
+	map = (int **)malloc((info->x + 1) *sizeof(int *));
 	maptext = ft_strsplit(line, ' ');
 	while (i < info->x)
 	{
@@ -30,6 +30,7 @@ int		**ft_fill_map(char *line, t_map *info)
 		i++;
 	}
 	map[i] = NULL;
+	free(maptext);
 	return (map);
 }
 
@@ -62,12 +63,13 @@ int		***ft_get_map(int ac, char **av, t_map *info)
 	{
 		if (get_next_line(fd, &line) > 0)
 			ft_fill_map_info(line, info);
-		map =  (int ***)malloc((info->y + 1) * sizeof(map));
+		map =  (int ***)malloc((info->y + 1) * sizeof(int **));
 		while (get_next_line(fd, &line) > 0)
 		{
-			map[i] = (int **)malloc(info->x * sizeof(*map));
+			map[i] = (int **)malloc(info->x * sizeof(int *));
 			map[i] = ft_fill_map(line, info);
 			i++;
+			free(line);
 		}
 		map[i] = NULL;
 	}

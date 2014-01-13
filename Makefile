@@ -6,7 +6,7 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/04 16:27:25 by wbeets            #+#    #+#              #
-#    Updated: 2014/01/13 19:40:36 by wbeets           ###   ########.fr        #
+#    Updated: 2014/01/13 20:02:13 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ $(NAME): disp lib disp2 $(OBJ)
 	@echo  "$(OK_COLOR)\t---SUCCES---"
 	@echo  "---COMPILATION COMPLETE---$(NO_COLOR)"
 	@echo "\n\
-		\tDear corrector, to properly navigate the code, start at main.c,\n"
+		\tDear corrector, to properly navigate the code, start at main.c,\n\
+		\tthe first function called is ft_getmap() which you can find get_map.c"
 
 disp:
 	@echo  "$(WARN_COLOR)---PLEASE-HOLD---COMPILING--- $(NO_COLOR)"

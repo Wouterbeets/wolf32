@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:10 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/13 19:22:10 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/13 20:00:24 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ typedef struct	s_map
 	int		wall;
 	int		empty;
 }				t_map;
+/*get_map.c*/
+
+int		**ft_fill_map(char *line, t_map *info);
+void		ft_fill_map_info(char *line, t_map *info);
+int		***ft_get_map(int ac, char **av, t_map *info);
 
 # endif /*HEADER_H*/

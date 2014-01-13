@@ -6,18 +6,18 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/04 16:27:25 by wbeets            #+#    #+#              #
-#    Updated: 2014/01/13 20:02:13 by wbeets           ###   ########.fr        #
+#    Updated: 2014/01/13 20:39:34 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ft_select
+NAME	= wolf3d
 FILES	= main.c\
 		  get_map.c
 SRC		= $(addprefix src/, $(FILES))
 OBJ		= $(SRC:src/%.c=.obj/%.o)
 FLAGS	= -Wall -Werror -Wextra
 DFLAGS	= -Wall -Werror -Wextra -g3 -pedantic
-LIBCOM	= -L libft -lft -L /usr/lib -ltermcap
+LIBCOM	= -L libft -lft -L /usr/X11/lib -lmlx -lXext -lX11
 NO_COLOR=\x1b[0m
 OK_COLOR=\x1b[32;01m
 ERROR_COLOR=\x1b[31;01m

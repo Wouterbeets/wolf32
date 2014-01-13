@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:32 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/13 20:24:45 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/13 20:59:30 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ int		main(int ac, char **av)
 	int		***map;
 	t_map	info;
 	if ((map = ft_get_map(ac, av, &info)))
+	{
+		info.mlx = mlx_init();
+		info.win = mlx_new_window(info.mlx, WIDTH, HEIGHT, "wow much improve");
+		mlx_loop(new.mlx);
 		ft_print_map(map);
-	else
-		ft_putstr("map not valid");
-	return (0);
+	}
+		return (0);
 }

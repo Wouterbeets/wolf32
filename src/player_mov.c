@@ -1,50 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   player_mov.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/13 17:13:32 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/15 10:02:59 by wbeets           ###   ########.fr       */
+/*   Created: 2014/01/15 11:16:44 by wbeets            #+#    #+#             */
+/*   Updated: 2014/01/15 11:27:48 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-/*
-void	ft_print_map(int ***map)
+
+void	ft_is_up(t_data *d)
 {
-	int		i;
-	int		j;
+	d->usery = d->usery - 1;
+}
 
-	i = 0;
-	j = 0;
-	while (map[i])
-	{
-		while (map[i][j])
-		{
-			ft_putnbr(*map[i][j]);
-			ft_putchar(' ');
-			j++;
-		}
-		j = 0;
-		ft_putchar('\n');
-		i++;
-	}
-}*/
-
-int		main(int ac, char **av)
+void	ft_is_down(t_data *d)
 {
-	int		***map;
-	t_map	info;
-	t_data	d;
+	d->usery = d->usery + 1;
+}
 
-	if ((map = ft_get_map(ac, av, &info)))
-	{
-		d.map = map;
-		d.info = &info;
-		d.bgfill = 0;
-		ft_mlx(&d);
-	}
-	return (0);
+void	ft_is_left(t_data *d)
+{
+	d->usery = d->usery - 1;
+}
+
+void	ft_is_right(t_data *d)
+{
+	d->usery = d->usery + 1;
 }

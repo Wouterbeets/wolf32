@@ -6,13 +6,17 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/04 16:27:25 by wbeets            #+#    #+#              #
-#    Updated: 2014/01/13 20:39:34 by wbeets           ###   ########.fr        #
+#    Updated: 2014/01/15 15:19:52 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= wolf3d
 FILES	= main.c\
-		  get_map.c
+		  get_map.c\
+		  ft_mlx.c\
+		  image.c\
+		  player_mov.c\
+		  add_walls.c
 SRC		= $(addprefix src/, $(FILES))
 OBJ		= $(SRC:src/%.c=.obj/%.o)
 FLAGS	= -Wall -Werror -Wextra
@@ -52,7 +56,7 @@ clean:
 	@rm -rf .obj/
 	@make clean -C libft/
 
-fclean:
+fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(DEB)
 	@make fclean -C libft/

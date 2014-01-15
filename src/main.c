@@ -6,12 +6,12 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:32 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/15 10:02:59 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/15 15:53:36 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-/*
+
 void	ft_print_map(int ***map)
 {
 	int		i;
@@ -31,7 +31,7 @@ void	ft_print_map(int ***map)
 		ft_putchar('\n');
 		i++;
 	}
-}*/
+}
 
 int		main(int ac, char **av)
 {

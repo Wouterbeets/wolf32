@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:10 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/15 15:44:10 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/15 16:05:52 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define WIDTH		800
 # define MGDA		mlx_get_data_addr
 # define HEIGHT		600
-# define BLOCKSIZE	20
+# define BLOCKSIZE	64
 # define GREY		0x868686
 # define BLUE		0x0893CF
 # define KEY_UP		65362
@@ -99,4 +99,5 @@ void				ft_is_right(t_data *d);
 
 void	raycast(t_data *d);
 void	add_walls(t_data *d);
+void	ft_print_map(int ***map);
 # endif /*HEADER_H*/

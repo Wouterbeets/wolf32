@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/14 15:59:11 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/15 12:04:03 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/17 16:33:08 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	get_user_pos(t_data *d)
 {
 	if (d->userx == 0 && d->usery == 0)
 	{
-		while (d->map[d->usery])
+		while (d->map[(int)d->usery])
 		{
-			while (d->map[d->usery][d->userx])
+			while (d->map[(int)d->usery][(int)d->userx])
 			{
-				if (*d->map[d->usery][d->userx] == d->info->start)
+				if (*d->map[(int)d->usery][(int)d->userx] == d->info->start)
 				{
-					d->usery = d->usery * BLOCKSIZE;
-					d->userx = d->userx * BLOCKSIZE;
+					d->usery = d->usery * BLOCKSIZE + (BLOCKSIZE / 2);
+					d->userx = d->userx * BLOCKSIZE + (BLOCKSIZE / 2);
 					return ;
 				}
 				d->userx++;
@@ -36,30 +36,20 @@ void	get_user_pos(t_data *d)
 
 void	make_bg(t_data *d)
 {
-	if (d->bgfill == 0)
+	d->x = 0;
+	d->y = 0;
+	while (d->y < HEIGHT)
 	{
-		d->x = 0;
-		d->y = 0;
-		while (d->y < HEIGHT)
+		while (d->x < WIDTH)
 		{
-			while (d->x < WIDTH)
-			{
-				if(d->y > HEIGHT / 2)
-					ft_pixel_to_img(d->bg->data, d, GREY);
-				else
-					ft_pixel_to_img(d->bg->data, d, BLUE);
-				d->x++;
-			}
-			d->x = 0;
-			d->y++;
+			if(d->y > HEIGHT / 2)
+				ft_pixel_to_img(d->bg->data, d, GREY);
+			else
+				ft_pixel_to_img(d->bg->data, d, BLUE);
+			d->x++;
 		}
-		d->bgfill = 1;
-		ft_memcpy(d->img->data, d->bg->data, sizeof(d->bg->data));
-	}
-	else
-	{
-		free(d->bg->data);
-		ft_memcpy(d->img->data, d->bg->data, sizeof(*d->bg->data));
+		d->x = 0;
+		d->y++;
 	}
 }
 

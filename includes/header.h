@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 17:13:10 by wbeets            #+#    #+#             */
-/*   Updated: 2014/01/15 16:05:52 by wbeets           ###   ########.fr       */
+/*   Updated: 2014/01/17 17:52:09 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@
 # define WIDTH		800
 # define MGDA		mlx_get_data_addr
 # define HEIGHT		600
-# define BLOCKSIZE	64
+# define BLOCKSIZE	100
 # define GREY		0x868686
 # define BLUE		0x0893CF
+# define YELLOW		0xFFFF00
 # define KEY_UP		65362
 # define KEY_DOWN	65364
 # define KEY_LEFT	65361
@@ -36,6 +37,9 @@
 # define KEY_ESC	65307
 # define FOV		60
 # define PI			3.14159265359
+# define PRECISION	1
+# define SPEED		BLOCKSIZE / 20
+# define RAD		0.0174532925
 
 typedef struct		s_map
 {
@@ -61,18 +65,29 @@ typedef struct		s_data
 	void			*mlx;
 	void			*win;
 	int				i;
-	int				x;
-	int				userx;
-	int				y;
-	int				usery;
+	float				x;
+	float				userx;
+	float				y;
+	float				usery;
 	int				bgfill;
-	int				dirx;
-	int				diry;
 	int				***map;
 	t_map			*info;
 	t_img			*bg;
 	t_img			*img;
+	int				dir;
+	int				save[4];
 }					t_data;
+
+typedef struct		s_raycast
+{
+	float			degrees;
+	int				dist;
+	float			rad;
+	int				x;
+	int				y;
+	int				col;
+	float			fov;
+}					t_raycast;
 
 /*get_map.c*/
 int					**ft_fill_map(char *line, t_map *info);
@@ -82,6 +97,7 @@ int					***ft_get_map(int ac, char **av, t_map *info);
 /*ft_mlx.c*/
 void				ft_mlx(t_data *d);
 int					expose_hook(t_data *d);
+int					mouse_hook(int button, int x, int y, t_data *d);
 void				ft_draw(t_data *d);
 int					key_hook(int keycode, t_data *d);
 
@@ -97,7 +113,7 @@ void				ft_is_down(t_data *d);
 void				ft_is_left(t_data *d);
 void				ft_is_right(t_data *d);
 
-void	raycast(t_data *d);
-void	add_walls(t_data *d);
-void	ft_print_map(int ***map);
+void				raycast(t_data *d);
+void				add_walls(t_data *d);
+void				ft_print_map(int ***map);
 # endif /*HEADER_H*/
